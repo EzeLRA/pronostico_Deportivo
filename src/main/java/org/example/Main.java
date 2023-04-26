@@ -50,9 +50,9 @@ public class Main {
 
          */
         for(Persona p:lectorBD.getPersonas()){
-            System.out.println("Nombre"+ p.getNombre());
-            System.out.println("Aciertos"+ p.getAciertos());
-            System.out.println("Puntaje"+ p.getPuntos());
+            System.out.println("Nombre: "+ p.getNombre());
+            System.out.println("Aciertos: "+ p.getAciertos());
+            System.out.println("Puntaje: "+ p.getPuntos());
             System.out.println("----");
         }
 
