@@ -39,6 +39,17 @@ public class LectorCSV {
         Fase fase1 = new Fase(1);
         fase1.agregarRonda(ronda1);
 
+        this.agregarFase(fase1);
+
+    }
+
+    private void agregarFase(Fase fase) {
+        for(Fase f:this.fases){
+            if(f.getNumeroFase()==fase.getNumeroFase()){
+                throw new RuntimeException("Ya existe la fase");
+            }
+        }
+        this.fases.add(fase);
     }
 
     private Equipo obtenerEquipo(String nombreEquipo) {
@@ -56,6 +67,22 @@ public class LectorCSV {
         }
 
         return equipo;
+
+    }
+
+    public Fase obtenerFase(int numeroFase) {
+        Fase fase = null;
+        for(Fase f : this.fases){
+            if(f.getNumeroFase() == numeroFase){
+                fase = f;
+            }
+        }
+
+        if(fase == null){
+            throw new RuntimeException("No existe la fase");
+        }
+
+        return fase;
 
     }
 }

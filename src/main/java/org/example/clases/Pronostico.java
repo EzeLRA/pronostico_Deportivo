@@ -34,4 +34,8 @@ public class Pronostico {
     public Resultado getResultado() {
         return resultado;
     }
+
+    public boolean fueAcertado() {
+        return this.partido.getResultado().equals(this.resultado);
+    }
 }

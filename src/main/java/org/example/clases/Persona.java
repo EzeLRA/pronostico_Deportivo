@@ -26,4 +26,12 @@ public class Persona {
         return aciertos;
     }
 
+    public void sumarPuntos(int puntajeNuevo) {
+        this.puntos += puntajeNuevo;
+    }
+
+    public void agregarAcierto(){
+        this.aciertos++;
+    }
+
 }

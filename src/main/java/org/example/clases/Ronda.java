@@ -27,4 +27,19 @@ public class Ronda {
         return numeroRonda;
     }
 
+    public Partido obtenerPartido(String equipo1, String equipo2) {
+
+        Partido partido = null;
+
+        for(Partido p : this.partidos){
+            if(p.juegan(equipo1,equipo2)) {
+                partido = p;
+            }
+        }
+
+        if(partido == null){
+            throw new RuntimeException("No existe el partido");
+        }
+        return partido;
+    }
 }

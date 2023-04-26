@@ -37,4 +37,18 @@ public class Partido {
                 ||(this.equipo2.getNombre().equals(p.equipo2.getNombre()) && this.equipo1.getNombre().equals(p.equipo1.getNombre()));
     }
 
+    public boolean juegan(String equipo1, String equipo2) {
+        return (this.equipo1.getNombre().equals(equipo1) && this.equipo2.getNombre().equals(equipo2))
+                ||(this.equipo2.getNombre().equals(equipo2) && this.equipo1.getNombre().equals(equipo1));
+    }
+
+    public Resultado getResultado() {
+        if(goles1 > goles2){
+            return Resultado.GANA1;
+        }else if(goles1 < goles2){
+            return Resultado.GANA2;
+        }else{
+            return Resultado.EMPATE;
+        }
+    }
 }
