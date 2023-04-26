@@ -5,10 +5,22 @@ import org.example.clases.Fase;
 import org.example.clases.Partido;
 import org.example.clases.Ronda;
 
+import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class LectorCSV {
+
+    private String local;
+
+    //Atributos
+    private BufferedReader lector;    //Lector de archivos
+    private String linea;             //Lineas de cada fila
+    private String palabras[] = null; //Palabras de las celdas
 
     List<Fase> fases;
     List<Equipo> equipos;
@@ -16,6 +28,29 @@ public class LectorCSV {
     public LectorCSV(){
         this.fases = new ArrayList<>();
         this.equipos = new ArrayList<>();
+    }
+
+    //Metodo lector de archivos
+    public void leerArchivo(String nombreArchivo){
+        try{
+            lector = new BufferedReader(new FileReader(nombreArchivo));
+            while((linea = lector.readLine())!= null){
+                palabras = linea.split(";");
+                System.out.printf(palabras[0]);
+            }
+            lector.close();
+            linea = null;
+            palabras = null;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+
+    //Metodo de impresion(De prueba)
+    public void Imprimir(){
+        for(int i=0 ; i < palabras.length;i++){
+            System.out.printf(palabras[i]+" / ");
+        }
     }
 
     public void imprimirResultados() {

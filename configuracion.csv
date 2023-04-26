@@ -1,0 +1,2 @@
+base_de_datos;usuario;contrasenia;puntos_acierto;puntos_ronda;puntos_fase
+localhost:3306/pronosticos;root;eze_LRA842._.;2;10;20
