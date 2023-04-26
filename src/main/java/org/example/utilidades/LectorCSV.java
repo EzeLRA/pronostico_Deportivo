@@ -7,15 +7,12 @@ import org.example.clases.Ronda;
 
 import javax.swing.*;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class LectorCSV {
 
-    private String local;
 
     //Atributos
     private BufferedReader lector;    //Lector de archivos
@@ -31,12 +28,14 @@ public class LectorCSV {
     }
 
     //Metodo lector de archivos
-    public void leerArchivo(String nombreArchivo){
+    public String leerArchivo(String nombreArchivo, int pos,String clave){
+        String salida = "";
+
         try{
             lector = new BufferedReader(new FileReader(nombreArchivo));
             while((linea = lector.readLine())!= null){
                 palabras = linea.split(";");
-                System.out.printf(palabras[0]);
+                salida = palabras[pos];
             }
             lector.close();
             linea = null;
@@ -44,7 +43,10 @@ public class LectorCSV {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
         }
+        return salida;
     }
+
+
 
     //Metodo de impresion(De prueba)
     public void Imprimir(){

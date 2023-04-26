@@ -10,6 +10,11 @@ import static java.util.stream.Collectors.toList;
 
 public class LectorBD {
 
+    //Atributos definiciones de la base de datos
+    private String urlBD;
+    private String user;
+    private String password;
+
     private List<Pronostico> pronosticos;
     private List<Persona> personas;
 
@@ -56,9 +61,14 @@ public class LectorBD {
     }
 
     public void imprimirPronosticos(){
+
+        urlBD = lectorCSV.leerArchivo("configuracion.csv",0,"Base_de_datos");
+        user = lectorCSV.leerArchivo("configuracion.csv",1,"usuario");
+        password = lectorCSV.leerArchivo("configuracion.csv",2,"contrasenia");
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pronosticos","root","eze_LRA842._.");
+            Connection con = DriverManager.getConnection("jdbc:mysql://"+urlBD,"root","eze_LRA842._.");
             Statement stmt = con.createStatement();
             ResultSet resultado = stmt.executeQuery("select * from pronosticos");
 

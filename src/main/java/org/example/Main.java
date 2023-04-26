@@ -20,8 +20,6 @@ public class Main {
 
         calcularPuntos(lectorBD,puntajePorPartido,puntajeExtraRonda,puntajeExtraFase);
 
-        lectorCSV.leerArchivo("configuracion.csv");
-
     }
 
     private static void calcularPuntos(LectorBD lectorBD , int puntajePorPartido, int puntajeExtraRonda,int puntajeExtraFase) {
