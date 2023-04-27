@@ -68,7 +68,7 @@ public class LectorBD {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://"+urlBD,"root","eze_LRA842._.");
+            Connection con = DriverManager.getConnection("jdbc:mysql://"+urlBD,user,password);
             Statement stmt = con.createStatement();
             ResultSet resultado = stmt.executeQuery("select * from pronosticos");
 
